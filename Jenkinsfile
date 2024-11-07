@@ -18,7 +18,7 @@ pipeline {
         stage('Docer Image Builging') {
             steps {
                 sh '''
-				cd msa-parking-service
+		cd project-parking
                 docker build -t ${DOCKER_IMAGE_OWNER}/msa-frontend:${DOCKER_IMAGE_TAG} ./msa-frontend
                 docker build -t ${DOCKER_IMAGE_OWNER}/msa-register-service:${DOCKER_IMAGE_TAG} ./msa-register-service
                 docker build -t ${DOCKER_IMAGE_OWNER}/msa-payment-service:${DOCKER_IMAGE_TAG} ./msa-payment-service
