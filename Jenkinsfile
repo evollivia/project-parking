@@ -18,13 +18,10 @@ pipeline {
         stage('Docer Image Builging') {
             steps {
                 sh '''
-		cd ~/project-parking/msa-register-service
+		cd project-parking
                 docker build -t ${DOCKER_IMAGE_OWNER}/msa-register-service:${DOCKER_IMAGE_TAG} ./msa-register-service
-		cd ~/project-parking/msa-payment-service
                 docker build -t ${DOCKER_IMAGE_OWNER}/msa-payment-service:${DOCKER_IMAGE_TAG} ./msa-payment-service
-		cd ~/project-parking/msa-parking-service
                 docker build -t ${DOCKER_IMAGE_OWNER}/msa-parking-service:${DOCKER_IMAGE_TAG} ./msa-parking-service
-		cd ~/project-parking/msa-statistics-service
                 docker build -t ${DOCKER_IMAGE_OWNER}/msa-statistics-service:${DOCKER_IMAGE_TAG} ./msa-statistics-service
                 '''
             }
