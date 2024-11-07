@@ -21,10 +21,10 @@ pipeline {
                 sh '''
                 docker build -t ${DOCKER_IMAGE_OWNER}/msa-frontend-nodejs:${DOCKER_IMAGE_TAG} -f nodejs-Dockerfile ./msa-frontend .
                 docker build -t ${DOCKER_IMAGE_OWNER}/msa-frontend-nginx:${DOCKER_IMAGE_TAG} -f nginx-Dockerfile ./msa-frontend .
-                docker build -t ${DOCKER_IMAGE_OWNER}/msa-register-service:${DOCKER_IMAGE_TAG} ./msa-register-service
-                docker build -t ${DOCKER_IMAGE_OWNER}/msa-payment-service:${DOCKER_IMAGE_TAG} ./msa-payment-service
-                docker build -t ${DOCKER_IMAGE_OWNER}/msa-parking-service:${DOCKER_IMAGE_TAG} ./msa-parking-service
-                docker build -t ${DOCKER_IMAGE_OWNER}/msa-statistics-service:${DOCKER_IMAGE_TAG} ./msa-statistics-service
+                docker build -t ${DOCKER_IMAGE_OWNER}/msa-register-service:${DOCKER_IMAGE_TAG} ./msa-register-service .
+                docker build -t ${DOCKER_IMAGE_OWNER}/msa-payment-service:${DOCKER_IMAGE_TAG} ./msa-payment-service .
+                docker build -t ${DOCKER_IMAGE_OWNER}/msa-parking-service:${DOCKER_IMAGE_TAG} ./msa-parking-service .
+                docker build -t ${DOCKER_IMAGE_OWNER}/msa-statistics-service:${DOCKER_IMAGE_TAG} ./msa-statistics-service .
                 '''
 		}
             }
