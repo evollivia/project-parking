@@ -17,8 +17,8 @@ pipeline {
         }
         stage('Docer Image Builging') {
             steps {
+		Directory('project-parking'){    
                 sh '''
-		cd project-parking
                 docker build -t ${DOCKER_IMAGE_OWNER}/msa-frontend-nodejs:${DOCKER_IMAGE_TAG} -f nodejs-Dockerfile ./msa-frontend
                 docker build -t ${DOCKER_IMAGE_OWNER}/msa-frontend-nginx:${DOCKER_IMAGE_TAG} -f nginx-Dockerfile ./msa-frontend
                 docker build -t ${DOCKER_IMAGE_OWNER}/msa-register-service:${DOCKER_IMAGE_TAG} ./msa-register-service
@@ -26,6 +26,7 @@ pipeline {
                 docker build -t ${DOCKER_IMAGE_OWNER}/msa-parking-service:${DOCKER_IMAGE_TAG} ./msa-parking-service
                 docker build -t ${DOCKER_IMAGE_OWNER}/msa-statistics-service:${DOCKER_IMAGE_TAG} ./msa-statistics-service
                 '''
+		}
             }
         }
         stage('Docer Login') {
